@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+	<style>
+		.center {margin: auto; width: 500px; margin-top: 50px; text-align: center}
+		.textwide {margin: 10px; text-align: center}
+	</style>
+	</head>
+
+<body>
+
+<div class = center> 
+	<h2> Бобро пожаловать! </h2>
+	<br>
+
+	<form action="/" method="post" id="loginbutton">
+		Логин: <input class="textwide" type="text" id="login" name="login"/>
+		<br><br>
+		Пароль: <input class="textwide " type="text" id="password" name="password"/>
+		<br><br>
+		<input type="submit" name="loggin" value="Войти"/>
+	</form>
+  <br>
+  <form action="/sign" method="post" id="loginbutton">
+		Логин: <input class="textwide" type="text" id="new_login" name="new_login"/>
+		<br><br>
+		Пароль: <input class="textwide " type="text" id="new_password" name="new_password"/>
+		<br><br>
+    <input type="submit" name="loggin" value="Новый пользователь"/>
+  </form>
+</div>
+
+<div class = center>
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<span>
+			{%for message in messages%}
+				{{message}}
+			{%endfor%}
+			</span>
+		{%endif%}
+	{%endwith%}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+	<style>
+		.divstyle {margin-left: 10px}
+		.keytext {width: 400px}
+		.ticker {}
+    .min_win {width: 50px}
+	</style>
+	</head>
+
+<body>
+
+<div class = "divstyle">
+	<span><h2> Параметры бота, пользователь: {{users_data['username']}}<form align = right action="/log_out" method="post" id="logoutbutton">
+		<input type="submit" name="logout" value="Выйти"/>
+	</form>
+  </h2></span>
+</div>
+<div class = "divstyle">
+	<form action="/save_settings" method="post" id="savesettings">
+    <h2> В позиции ? <input class="ticker" type="text" id="in_pos" name="in_pos" form="savesettings" placeholder = {{users_data['in_pos']}} /></h2>
+		<h3> Тикер: <input class="ticker" type="text" id="symbol" name="symbol" form="savesettings" placeholder = {{users_data['symbol']}} /> Плечо: <input class="min_win" type="text" id="leverage" name="leverage" form="savesettings" placeholder = {{users_data['leverage']}} /> Округл. контрактов: <input class="min_win" type="text" id="min_dig" name="min_dig" form="savesettings" placeholder = {{users_data['min_dig']}} /></h3>
+		<h4> Начальная позиция ($): <input class="textwide" type="text" id="qty_pos" name="qty_pos" form="savesettings" placeholder = {{users_data['qty_pos']}} /> </h4>
+		<h4> Тейк-профит 1 (объем, %): <input class="textwide" type="text" id="qty1" name="qty1" form="savesettings" placeholder = {{users_data['qty1']}} />  Взят?: <input class="ticker" type="text" id="take_1" name="take_1" form="savesettings" placeholder = {{users_data['take_1']}} /></h4>
+		<h4> Тейк-профит 2 (объем, %): <input class="textwide" type="text" id="qty2" name="qty2" form="savesettings" placeholder = {{users_data['qty2']}} />  Взят?: <input class="ticker" type="text" id="take_2" name="take_2" form="savesettings" placeholder = {{users_data['take_2']}} /></h4>
+		<h4>Тейк-профит 3 (объем, %): <input class="textwide" type="text" id="qty3" name="qty3" form="savesettings" placeholder = {{users_data['qty3']}} />  Взят?: <input class="ticker" type="text" id="take_3" name="take_3" form="savesettings" placeholder = {{users_data['take_3']}} /></h4>
+		<h4> Тейк-профит 4 (объем, %): <input class="textwide" type="text" id="qty4" name="qty4" form="savesettings" placeholder = {{users_data['qty4']}} />  Взят?: <input class="ticker" type="text" id="take_4" name="take_4" form="savesettings" placeholder = {{users_data['take_4']}} /></h4>
+    <h4> Тейк-профит D (объем, %): <input class="textwide" type="text" id="qtyD" name="qtyD" form="savesettings" placeholder = {{users_data['qtyD']}} />  Взят?: <input class="ticker" type="text" id="take_d" name="take_d" form="savesettings" placeholder = {{users_data['take_d']}} /></h4>
+		<br>
+		<h4> Ключ: <input class="keytext" type="text" id="key" name="key" form="savesettings" placeholder = {{users_data['key1']}} /> </h4>
+		<h4> Секрет: <input class="keytext" type="text" id="sec" name="sec" form="savesettings" /> </h4>
+		<h4> Токен Телеграм-Бота: <input class="keytext" type="text" id="tg_token" name="tg_token" form="savesettings" placeholder = {{users_data['tg_token']}} /> </h4>
+		<h4> ID чата: <input class="keytext" type="text" id="chat_id" name="chat_id" form="savesettings" placeholder = {{users_data['chat_id']}} /> </h4>
+		<br>
+		<input type="submit" name="savesett" value="Сохранить настройки"/>
+	</form>
+
+	<form align = right action="/delete_user" method="post" id="deletebutton">
+		<input type="submit" name="delete_user" value="Удалиться"/>
+	</form>
+</div>
+
+</body>
+</html>
